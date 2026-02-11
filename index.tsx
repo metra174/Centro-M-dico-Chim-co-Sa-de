@@ -6,12 +6,16 @@ import App from './App.tsx';
 const rootElement = document.getElementById('root');
 
 if (rootElement) {
-  const root = createRoot(rootElement);
-  root.render(
-    <StrictMode>
-      <App />
-    </StrictMode>
-  );
+  try {
+    const root = createRoot(rootElement);
+    root.render(
+      <StrictMode>
+        <App />
+      </StrictMode>
+    );
+  } catch (error) {
+    console.error("Erro ao renderizar a aplicação:", error);
+  }
 } else {
   console.error("Erro fatal: Elemento #root não encontrado no DOM.");
 }
