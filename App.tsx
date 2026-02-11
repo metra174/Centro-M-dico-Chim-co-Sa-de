@@ -17,7 +17,7 @@ import {
   Stethoscope
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { SERVICES, BENEFITS, CONTACT_INFO, IMAGES } from './constants.tsx';
+import { SERVICES, BENEFITS, CONTACT_INFO, IMAGES } from './constants';
 
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
