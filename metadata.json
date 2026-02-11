@@ -1,0 +1,7 @@
+{
+  "name": "Centro Médico Chimúco Saúde",
+  "description": "Uma landing page profissional e moderna para o Centro Médico Chimúco Saúde, focada em conversão e atendimento humanizado.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
