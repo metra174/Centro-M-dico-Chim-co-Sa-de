@@ -86,7 +86,7 @@ const App: React.FC = () => {
               </button>
             ))}
             <a 
-              href={`https://wa.me/${CONTACT_INFO.whatsapp}`} 
+              href={`https://wa.me/${CONTACT_INFO.whatsapp.replace('+', '')}`} 
               target="_blank" 
               rel="noopener noreferrer"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold text-sm uppercase tracking-widest transition-all shadow-lg shadow-blue-200 active:scale-95"
@@ -121,7 +121,9 @@ const App: React.FC = () => {
                   </button>
                 ))}
                 <a 
-                  href={`https://wa.me/${CONTACT_INFO.whatsapp}`} 
+                  href={`https://wa.me/${CONTACT_INFO.whatsapp.replace('+', '')}`} 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-blue-600 text-white text-center py-5 rounded-2xl font-black text-lg flex items-center justify-center space-x-3 shadow-xl shadow-blue-100"
                 >
                   <MessageCircle size={24} />
@@ -161,14 +163,16 @@ const App: React.FC = () => {
               
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5">
                 <a 
-                  href={`https://wa.me/${CONTACT_INFO.whatsapp}`}
+                  href={`https://wa.me/${CONTACT_INFO.whatsapp.replace('+', '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full sm:w-auto flex items-center justify-center space-x-4 bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-2xl font-black text-lg transition-all shadow-2xl shadow-blue-200 active:scale-95"
                 >
                   <MessageCircle size={24} />
                   <span>Marcar Consulta</span>
                 </a>
                 <a 
-                  href={`tel:${CONTACT_INFO.phone}`}
+                  href={`tel:${CONTACT_INFO.phone.replace('+', '')}`}
                   className="w-full sm:w-auto flex items-center justify-center space-x-4 bg-white border-2 border-slate-200 text-slate-900 px-10 py-5 rounded-2xl font-black text-lg hover:border-blue-600 hover:text-blue-600 transition-all shadow-xl shadow-slate-50"
                 >
                   <Phone size={24} />
@@ -203,7 +207,6 @@ const App: React.FC = () => {
                 />
               </div>
               
-              {/* Floating Doctor Bio */}
               <div className="absolute -bottom-12 -right-6 bg-white p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl z-20 border border-slate-50 max-w-[240px] md:max-w-[280px]">
                 <div className="flex flex-col space-y-3">
                   <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-50 text-blue-600 rounded-xl md:rounded-2xl flex items-center justify-center">
@@ -214,7 +217,6 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-              {/* Urgência Card */}
               <div className="absolute top-20 -left-6 md:-left-12 bg-blue-600 p-4 md:p-6 rounded-[1.5rem] md:rounded-[2rem] shadow-2xl z-20 hidden md:flex flex-col space-y-2 text-white border-4 border-white">
                 <Zap size={28} fill="white" className="animate-pulse" />
                 <p className="font-black text-xs md:text-sm uppercase tracking-widest">Urgência</p>
@@ -300,7 +302,7 @@ const App: React.FC = () => {
 
               <div className="mt-12 flex items-center space-x-6">
                 <a 
-                  href={`https://wa.me/${CONTACT_INFO.whatsapp}?text=Olá! Vi o anúncio e gostaria de saber mais.`}
+                  href={`https://wa.me/${CONTACT_INFO.whatsapp.replace('+', '')}?text=Olá! Vi o anúncio e gostaria de saber mais.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black text-lg hover:bg-blue-500 hover:text-white transition-all shadow-xl active:scale-95"
@@ -384,30 +386,6 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="py-24 bg-slate-50">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            {BENEFITS.map((benefit, idx) => (
-              <motion.div 
-                key={benefit.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="bg-white p-10 rounded-[3rem] shadow-sm hover:shadow-xl transition-all border border-blue-50 text-center group"
-              >
-                <div className="w-24 h-24 bg-blue-50 text-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 rotate-3 group-hover:rotate-0 shadow-sm">
-                  {benefit.icon}
-                </div>
-                <h4 className="text-2xl font-black text-slate-900 mb-4 tracking-tighter">{benefit.title}</h4>
-                <p className="text-slate-400 font-medium">Excelência operacional e ética profissional em todos os nossos processos.</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="bg-slate-900 text-white pt-24 pb-12">
         <div className="container mx-auto px-4 md:px-6">
@@ -422,9 +400,6 @@ const App: React.FC = () => {
                   <p className="text-[10px] text-blue-400 font-black uppercase tracking-[0.2em]">Centro Médico Clínico</p>
                 </div>
               </div>
-              <p className="text-slate-400 leading-relaxed font-bold italic text-lg">
-                "Saúde com humanidade e rigor clínico no coração de Angola."
-              </p>
             </div>
 
             <div>
@@ -440,18 +415,9 @@ const App: React.FC = () => {
             <div>
               <h5 className="font-black text-white mb-8 uppercase text-xs tracking-[0.3em]">Contato</h5>
               <ul className="space-y-4 text-slate-400 font-bold">
-                <li className="flex items-center space-x-3">
-                  <Phone size={20} className="text-blue-500" />
-                  <span>{CONTACT_INFO.phoneDisplay}</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <MessageCircle size={20} className="text-blue-500" />
-                  <span>{CONTACT_INFO.whatsappDisplay}</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <MapPin size={20} className="text-blue-500 mt-1 shrink-0" />
-                  <span className="text-sm">{CONTACT_INFO.address}</span>
-                </li>
+                <li>{CONTACT_INFO.phoneDisplay}</li>
+                <li>{CONTACT_INFO.whatsappDisplay}</li>
+                <li className="text-sm">{CONTACT_INFO.address}</li>
               </ul>
             </div>
 
@@ -459,37 +425,23 @@ const App: React.FC = () => {
               <h5 className="font-black text-white mb-6 uppercase text-xs tracking-[0.3em]">Informações</h5>
               <p className="text-xs text-slate-500 uppercase tracking-widest font-black mb-2">NIF</p>
               <p className="font-black text-blue-400 mb-6">{CONTACT_INFO.nif}</p>
-              <div className="flex items-center space-x-4">
-                <Clock className="text-blue-500" size={24} />
-                <div>
-                  <p className="font-black">24 Horas</p>
-                  <p className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Todos os dias</p>
-                </div>
-              </div>
             </div>
           </div>
 
           <div className="pt-10 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-slate-500 text-[10px] font-black uppercase tracking-[0.2em]">
-            <p>&copy; {new Date().getFullYear()} Centro Médico Chimúco Saúde. Qualidade Angolana.</p>
-            <div className="mt-6 md:mt-0 space-x-8">
-              <a href="#" className="hover:text-white transition-colors">Privacidade</a>
-              <a href="#" className="hover:text-white transition-colors">Termos</a>
-            </div>
+            <p>&copy; {new Date().getFullYear()} Centro Médico Chimúco Saúde.</p>
           </div>
         </div>
       </footer>
 
       {/* Floating Buttons */}
       <a 
-        href={`https://wa.me/${CONTACT_INFO.whatsapp}`}
+        href={`https://wa.me/${CONTACT_INFO.whatsapp.replace('+', '')}`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-50 bg-blue-600 text-white p-5 rounded-full shadow-[0_20px_50px_rgba(37,99,235,0.4)] hover:scale-110 active:scale-95 transition-all group"
       >
         <MessageCircle size={32} />
-        <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-slate-900 text-white px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest shadow-2xl opacity-0 group-hover:opacity-100 transition-all pointer-events-none whitespace-nowrap">
-          Fale Connosco
-        </span>
       </a>
 
       <button 
